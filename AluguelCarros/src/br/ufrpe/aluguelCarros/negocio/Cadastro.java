@@ -1,18 +1,18 @@
-// Modicar classe para fazer todas as operações de CRUD
 package br.ufrpe.aluguelCarros.negocio;
 
-import br.ufrpe.aluguelCarros.dados.RepositorioLocatarios;
-import br.ufrpe.aluguelCarros.negocio.beans.Locatario;
+import java.util.List;
 
-public class Cadastro {
-	private static RepositorioLocatarios repositorioLocatarios = new RepositorioLocatarios();
+import br.ufrpe.aluguelCarros.exception.ElementoJaExisteException;
+import br.ufrpe.aluguelCarros.exception.ElementoNaoExisteException;
+
+public interface Cadastro {
+
+	void inserir(Object obj) throws ElementoJaExisteException;
+	    
+	    List<Object> listar();
+	    
+	    void remover(Object obj) throws ElementoNaoExisteException;
 	
-	public static void cadastraLocatario(Locatario locatario ) {
-		repositorioLocatarios.cadastrar(locatario);
-	}
-	
-	
-	public static RepositorioLocatarios getRepositorioLocatarios() {
-		return repositorioLocatarios;
-	}
+	    void atualizar(Object newObj) throws ElementoNaoExisteException;
+
 }

@@ -8,6 +8,7 @@ public class Carro {
 	// freios abs, trava elétrica e direção hidráulica.
 	private boolean ar, airbag, cambio, direcao, freio, trava;
 	private float preco; // preço a ser cobrado por dia
+	private boolean emUso; // flag para determinar se carro está em uso; 
 
 	public Carro(String modelo, short portas, short passageiros, boolean ar, boolean airbag,
 			boolean cambio, boolean direcao, boolean freio, boolean trava, float preco) {
@@ -25,6 +26,14 @@ public class Carro {
 
 	//Getters and setters
 	
+	public boolean isEmUso() {
+		return emUso;
+	}
+
+	public void setEmUso(boolean emUso) {
+		this.emUso = emUso;
+	}
+
 	public String getModelo() {
 		return modelo;
 	}

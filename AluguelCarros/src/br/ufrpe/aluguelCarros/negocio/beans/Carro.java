@@ -3,17 +3,17 @@ package br.ufrpe.aluguelCarros.negocio.beans;
 public class Carro {
 
 	private String modelo, motor; // modelo do carro e cilindradas do motor (1.0, 1.4 ...)
-	private short portas, passageiros;
+	private int passageiros;
 	// indica se o carro possui ou não arcondicionado, airbag, cambio automático
 	// freios abs, trava elétrica e direção hidráulica.
 	private boolean ar, airbag, cambio, direcao, freio, trava;
 	private float preco; // preço a ser cobrado por dia
 	private boolean emUso; // flag para determinar se carro está em uso; 
 
-	public Carro(String modelo, short portas, short passageiros, boolean ar, boolean airbag,
+	public Carro(String modelo,String motor, int passageiros, boolean ar, boolean airbag,
 			boolean cambio, boolean direcao, boolean freio, boolean trava, float preco) {
 		this.modelo = modelo;
-		this.portas = portas;
+		this.motor = motor;
 		this.passageiros = passageiros;
 		this.ar = ar;
 		this.airbag = airbag;
@@ -50,19 +50,12 @@ public class Carro {
 		this.motor = motor;
 	}
 
-	public short getPortas() {
-		return portas;
-	}
 
-	public void setPortas(short portas) {
-		this.portas = portas;
-	}
-
-	public short getPassageiros() {
+	public int getPassageiros() {
 		return passageiros;
 	}
 
-	public void setPassageiros(short passageiros) {
+	public void setPassageiros(int passageiros) {
 		this.passageiros = passageiros;
 	}
 

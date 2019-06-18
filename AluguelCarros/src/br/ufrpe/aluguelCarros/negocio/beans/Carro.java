@@ -1,19 +1,24 @@
 package br.ufrpe.aluguelCarros.negocio.beans;
 
-public class Carro {
+import java.io.Serializable;
 
-	private String modelo, motor; // modelo do carro e cilindradas do motor (1.0, 1.4 ...)
+public class Carro implements Serializable {
+
+	private static final long serialVersionUID = 2189943021721966218L;
+	
+	private String modelo, placa, motor; // modelo do carro e cilindradas do motor (1.0, 1.4 ...)
 	private int passageiros;
 	// indica se o carro possui ou não arcondicionado, airbag, cambio automático
 	// freios abs, trava elétrica e direção hidráulica.
 	private boolean ar, airbag, cambio, direcao, freio, trava;
-	private float preco; // preço a ser cobrado por dia
-	private boolean emUso; // flag para determinar se carro está em uso; 
+	private boolean alugado; //flag que indica se o carro está atualmente em uso 
+	private float preco; // preço a ser cobrado por dia 
 
-	public Carro(String modelo,String motor, int passageiros, boolean ar, boolean airbag,
+	public Carro(String modelo, String placa, String motor, int passageiros, boolean ar, boolean airbag,
 			boolean cambio, boolean direcao, boolean freio, boolean trava, float preco) {
 		this.modelo = modelo;
 		this.motor = motor;
+		this.placa = placa;
 		this.passageiros = passageiros;
 		this.ar = ar;
 		this.airbag = airbag;
@@ -22,17 +27,35 @@ public class Carro {
 		this.freio = freio;
 		this.trava = trava;
 		this.preco = preco;
+		this.alugado = false;
 	}
-
-	//Getters and setters
 	
-	public boolean isEmUso() {
-		return emUso;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Carro other = (Carro) obj;
+		if (placa == null) {
+			if (other.placa != null)
+				return false;
+		} else if (!placa.equals(other.placa))
+			return false;
+		return true;
 	}
-
-	public void setEmUso(boolean emUso) {
-		this.emUso = emUso;
+	
+	//Apenas para testes
+	@Override
+	public String toString() {
+		return "Carro [modelo=" + modelo + ", placa=" + placa + ", motor=" + motor + ", passageiros=" + passageiros
+				+ ", ar=" + ar + ", airbag=" + airbag + ", cambio=" + cambio + ", direcao=" + direcao + ", freio="
+				+ freio + ", trava=" + trava + ", alugado=" + alugado + ", preco=" + preco + "]";
 	}
+	
+	//Getters and setters
 
 	public String getModelo() {
 		return modelo;
@@ -114,6 +137,20 @@ public class Carro {
 	public void setPreco(float preco) {
 		this.preco = preco;
 	}
-	
-	
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public boolean isAlugado() {
+		return alugado;
+	}
+
+	public void setAlugado(boolean alugado) {
+		this.alugado = alugado;
+	}
 }

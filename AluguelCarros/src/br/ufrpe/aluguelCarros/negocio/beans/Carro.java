@@ -13,9 +13,11 @@ public class Carro implements Serializable {
 	private boolean ar, airbag, cambio, direcao, freio, trava;
 	private boolean alugado; //flag que indica se o carro está atualmente em uso 
 	private float preco; // preço a ser cobrado por dia 
+	private Categoria categoria;
+
 
 	public Carro(String modelo, String placa, String motor, int passageiros, boolean ar, boolean airbag,
-			boolean cambio, boolean direcao, boolean freio, boolean trava, float preco) {
+			boolean cambio, boolean direcao, boolean freio, boolean trava, float preco, Categoria categoria) {
 		this.modelo = modelo;
 		this.motor = motor;
 		this.placa = placa;
@@ -28,6 +30,7 @@ public class Carro implements Serializable {
 		this.trava = trava;
 		this.preco = preco;
 		this.alugado = false;
+		this.categoria = categoria;
 	}
 	
 	@Override
@@ -52,7 +55,8 @@ public class Carro implements Serializable {
 	public String toString() {
 		return "Carro [modelo=" + modelo + ", placa=" + placa + ", motor=" + motor + ", passageiros=" + passageiros
 				+ ", ar=" + ar + ", airbag=" + airbag + ", cambio=" + cambio + ", direcao=" + direcao + ", freio="
-				+ freio + ", trava=" + trava + ", alugado=" + alugado + ", preco=" + preco + "]";
+				+ freio + ", trava=" + trava + ", alugado=" + alugado + ", preco=" + preco + ", categoria=" + categoria
+				+ "]";
 	}
 	
 	//Getters and setters
@@ -152,5 +156,13 @@ public class Carro implements Serializable {
 
 	public void setAlugado(boolean alugado) {
 		this.alugado = alugado;
+	}
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 }

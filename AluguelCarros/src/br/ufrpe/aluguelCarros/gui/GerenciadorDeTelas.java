@@ -13,6 +13,7 @@ public class GerenciadorDeTelas {
     private Scene telaInicialScene;
     
     private Scene telaAdminScene;
+    private TelaAdminController telaAdminController;
     
     private Scene telaCadastroCarroScene;
     
@@ -35,7 +36,8 @@ public class GerenciadorDeTelas {
             
             fxmlLoader = new FXMLLoader();
             TabPane telaAdminPane = fxmlLoader.load(getClass().getResource("TelaAdmin.fxml").openStream());           
-            this.telaAdminScene = new Scene(telaAdminPane); 
+            this.telaAdminScene = new Scene(telaAdminPane);
+            this.telaAdminController = (TelaAdminController) fxmlLoader.getController();
             
             fxmlLoader = new FXMLLoader();
             Pane telaCadastroCarro = fxmlLoader.load(getClass().getResource("TelaCadastroCarro.fxml").openStream());           
@@ -52,6 +54,10 @@ public class GerenciadorDeTelas {
     
     public Scene getTelaAdmin() {
     	return telaAdminScene;
+    }
+    
+    public TelaAdminController getTelaAdminController() {
+    	return this.telaAdminController;
     }
     
     public Scene getTelaCadastroCarro() {

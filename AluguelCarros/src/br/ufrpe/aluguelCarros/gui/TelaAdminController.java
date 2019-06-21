@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
+import br.ufrpe.aluguelCarros.negocio.Fachada;
+import br.ufrpe.aluguelCarros.negocio.beans.Carro;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,10 +18,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class TelaAdminController implements Initializable{
 	private GerenciadorDeTelas gerenciador;
 	@FXML private Button cadastraCarro;
-	@FXML private TableView<Car> tabela;
-	@FXML private TableColumn<Car, String> modeloCol;
-    @FXML private TableColumn<Car, String> placaCol;
-    @FXML private TableColumn<Car, Boolean> alugadoCol;
+	@FXML private TableView<Carro> tabela;
+	@FXML private TableColumn<Carro, String> modeloCol;
+    @FXML private TableColumn<Carro, String> placaCol;
+    @FXML private TableColumn<Carro, Boolean> alugadoCol;
     
     public void cadastraCarro() {
     	this.gerenciador = GerenciadorDeTelas.getInstance();
@@ -40,45 +40,15 @@ public class TelaAdminController implements Initializable{
 		tabela.setItems(listaDeCarros());
 	}
     
-    private ObservableList<Car> listaDeCarros() {
-    	return FXCollections.observableArrayList(new Car("Fusca", "BR 666", true));
+    private ObservableList<Carro> listaDeCarros() {
+    	ObservableList<Carro> resultado = FXCollections.observableArrayList();
+    	resultado.addAll(Fachada.getInstance().listar());
+    	return resultado;
     }
     
-    //Classe modelo para o preenchimento da tabela
-    public static class Car {
-    	private final SimpleStringProperty modelo;
-    	private final SimpleStringProperty placa;
-    	private final SimpleBooleanProperty alugado;
-    	
-    	public Car(String modelo, String placa, Boolean alugado) {
-    		this.modelo = new SimpleStringProperty(modelo);
-    		this.placa = new SimpleStringProperty(placa);
-    		this.alugado = new SimpleBooleanProperty(alugado);
-    	}
-    	
-    	public String getModelo() {
-    		return modelo.get();
-    	}
-    	
-		public SimpleStringProperty modeloProperty() {
-			return modelo;
-		}
-		
-		public String getPlaca() {
-			return placa.get();
-		}
-
-		public SimpleStringProperty placaProperty() {
-			return placa;
-		}
-		
-		public Boolean isAlugado() {
-			return alugado.getValue();
-		}
-
-		public SimpleBooleanProperty alugadoProperty() {
-			return alugado;
-		}
+    public void atualizaTabela() {        
+        ObservableList<Carro> result = FXCollections.observableArrayList();
+        result.addAll(Fachada.getInstance().listar());        
+        tabela.setItems(result);
     }
-
 }

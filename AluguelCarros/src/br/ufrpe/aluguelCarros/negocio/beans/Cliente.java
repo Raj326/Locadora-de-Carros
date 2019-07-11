@@ -1,22 +1,16 @@
 package br.ufrpe.aluguelCarros.negocio.beans;
 
-public class Cliente extends Usuario{
-	private String cpf;
+import java.io.Serializable;
+
+public class Cliente extends Usuario implements  Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	private boolean alugandoCarro; //flag para indicar se o cliente está atualmente com um carro alugado 
 
-	public Cliente(String nome, String email, String senha, String cpf) {
-		super(nome, email, senha);
+	public Cliente(String nome, String login, String senha) {
+		super(nome, login, senha);
 		// TODO Auto-generated constructor stub
-		this.cpf = cpf;
 		this.alugandoCarro = false;
-	}
-	
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 	
 	public boolean isAlugandoCarro() {
@@ -36,10 +30,10 @@ public class Cliente extends Usuario{
 		if (getClass() != obj.getClass())
 			return false;
 		Cliente other = (Cliente) obj;
-		if (cpf == null) {
-			if (other.cpf != null)
+		if (this.getLogin() == null) {
+			if (other.getLogin() != null)
 				return false;
-		} else if (!cpf.equals(other.cpf))
+		} else if (!getLogin().equals(other.getLogin()))
 			return false;
 		return true;
 	}

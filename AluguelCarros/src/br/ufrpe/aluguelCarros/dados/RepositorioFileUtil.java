@@ -2,13 +2,14 @@ package br.ufrpe.aluguelCarros.dados;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class RepositorioFileUtil {
-    
+	
     public static Object lerDoArquivo(String filename) {
         Object instanciaLocal = null;
 
@@ -21,9 +22,15 @@ public class RepositorioFileUtil {
             
             // Se alguma exceção ocorrer, um objeto NULL será retornado
             instanciaLocal = ois.readObject();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             System.out.println("Não há arquivo com o nome '" + filename + "' para ser processado. Um novo arquivo será criado");
-        } finally {
+        } 
+        catch (IOException i){
+        	System.out.println("IOException");
+        }
+        catch (ClassNotFoundException o){
+        	System.out.println("Class not found");
+        }finally {
             if (ois != null) {
                 try {
                     ois.close();

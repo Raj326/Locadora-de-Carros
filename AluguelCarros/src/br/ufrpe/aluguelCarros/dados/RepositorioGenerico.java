@@ -1,11 +1,13 @@
+/* 
+ * A maior parte do código desta classe foi retirada do projeto Flight System 
+ * do professor Leandro Marques.
+ * Repositório: https://github.com/lmarques7/provas_passadas
+ */
 package br.ufrpe.aluguelCarros.dados;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import br.ufrpe.aluguelCarros.exception.*;
-
-
 
 public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
     
@@ -49,20 +51,10 @@ public class RepositorioGenerico<T> implements IRepositorioGenerico<T> {
 
     @Override
     public List<T> listar() {
-        return Collections.unmodifiableList(this.elementos);
+        return this.elementos;
     }
+    
 
-    /**
-     * Método deve remover um elemento previamente cadastrado no repositório.
-     * 
-     * A implementação deste método deve OBRIGATORIAMENTE usar o método indexOf
-     * da classe java.util.List para encontrar o índice de um determinado objeto
-     * do repositório e removê-lo.
-     * 
-     * @throws ElementoNaoExisteException
-     *             Exceção deverá ser levantada se, ao tentar remover um
-     *             elemento da lista, o mesmo não exista no repositório
-     */
     @Override
     public void remover(T obj) throws ElementoNaoExisteException {
         if (this.elementos.contains(obj)) {

@@ -1,8 +1,12 @@
 package br.ufrpe.aluguelCarros.negocio.beans;
 
-public class Administrador extends Usuario{
+import java.io.Serializable;
 
-	public Administrador(String nome, String email, String login, String senha) {
+public class Administrador extends Usuario implements  Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
+	public Administrador(String nome, String email, String senha) {
 		super(nome, email, senha);
 	}
 	

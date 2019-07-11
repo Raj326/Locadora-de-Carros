@@ -1,7 +1,10 @@
 package br.ufrpe.aluguelCarros.dados;
 
 import java.util.List;
-import br.ufrpe.aluguelCarros.exception.*;
+
+import br.ufrpe.aluguelCarros.exception.ElementoJaExisteException;
+import br.ufrpe.aluguelCarros.exception.ElementoNaoExisteException;
+
 
 
 public interface IRepositorioGenerico<T> {

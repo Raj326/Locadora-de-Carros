@@ -1,4 +1,3 @@
-//criar classe fachada para implementar o padrão de projeto singleton
 package br.ufrpe.aluguelCarros.gui;
 	
 import java.io.IOException;
@@ -15,7 +14,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws IOException {
 		stage = primaryStage;
 		//Pane root = FXMLLoader.load(getClass().getResource("TelaAdmin.fxml"));
-		primaryStage.setScene(gerenciador.getTelaAdmin());
+		primaryStage.setScene(gerenciador.getTelaLoginScene());
 		primaryStage.show();
 	}
 	

@@ -1,18 +1,23 @@
 package br.ufrpe.aluguelCarros.negocio.beans;
 
-public class Usuario {
+import java.io.Serializable;
+
+public abstract class Usuario implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
 	private String nome;
-	private String email;
+	private String login;
 	private String senha;
 
-	public Usuario(String nome, String email, String senha) {
+	public Usuario(String nome, String login, String senha) {
 		super();
 		this.nome = nome;
-		this.email = email;
+		this.login = login;
 		this.senha = senha;
 	}
 
-	// Gettersn and setters
+	// Getters and setters
 	public String getNome() {
 		return nome;
 	}
@@ -21,12 +26,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getLogin() {
+		return this.login;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String login) {
+		this.login = login;
 	}
 
 	public String getSenha() {
@@ -47,12 +52,18 @@ public class Usuario {
 		if (getClass() != obj.getClass())
 			return false;
 		Usuario other = (Usuario) obj;
-		if (email == null) {
-			if (other.email != null)
+		if (login == null) {
+			if (other.login != null)
 				return false;
-		} else if (!email.equals(other.email))
+		} else if (!login.equals(other.login))
 			return false;
 		return true;
+	}
+
+	//Apenas para testes
+	@Override
+	public String toString() {
+		return "Usuario [nome=" + nome + ", login=" + login + ", senha=" + senha + "]";
 	}
 	
 }

@@ -42,13 +42,13 @@ public class TelaAdminController implements Initializable{
     
     private ObservableList<Carro> listaDeCarros() {
     	ObservableList<Carro> resultado = FXCollections.observableArrayList();
-    	resultado.addAll(Fachada.getInstance().listar());
+    	resultado.addAll(Fachada.getInstance().listarCarros());
     	return resultado;
     }
     
     public void atualizaTabela() {        
         ObservableList<Carro> result = FXCollections.observableArrayList();
-        result.addAll(Fachada.getInstance().listar());        
+        result.addAll(Fachada.getInstance().listarCarros());        
         tabela.setItems(result);
     }
 }

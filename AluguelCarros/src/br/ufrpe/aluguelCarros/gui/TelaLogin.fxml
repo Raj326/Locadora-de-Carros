@@ -6,10 +6,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.aluguelCarros.gui.LocatarioLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.aluguelCarros.gui.TelaLoginController">
    <children>
-      <Button fx:id="cadastra" layoutX="298.0" layoutY="219.0" mnemonicParsing="false" text="Cadastrar-se" />
-      <Button fx:id="entra" layoutX="234.0" layoutY="219.0" mnemonicParsing="false" onAction="#entra" text="Login" />
+      <Button fx:id="cadastra" layoutX="298.0" layoutY="219.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar-se" />
+      <Button fx:id="entra" layoutX="234.0" layoutY="219.0" mnemonicParsing="false" onAction="#login" text="Login" />
       <TextField fx:id="login" layoutX="234.0" layoutY="116.0" />
       <Label layoutX="190.0" layoutY="120.0" text="Login: " />
       <Label layoutX="190.0" layoutY="173.0" text="Senha:" />

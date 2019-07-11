@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.211" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.aluguelCarros.gui.TelaClienteController">
+  <tabs>
+    <Tab text="Início">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+    <Tab text="Carros">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
+                     <left>
+                        <VBox prefHeight="314.0" prefWidth="163.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label prefHeight="0.0" prefWidth="163.0" text="FILTRAR CARACTERISTICAS" />
+                              <Label />
+                              <CheckBox fx:id="ar" mnemonicParsing="false" text="Ar condicionado" />
+                              <CheckBox fx:id="airbag" mnemonicParsing="false" text="Airbag" />
+                              <CheckBox fx:id="cambio" mnemonicParsing="false" text="Câmbio Automático" />
+                              <CheckBox fx:id="direcao" mnemonicParsing="false" text="Direção hidráulica" />
+                              <CheckBox fx:id="freio" mnemonicParsing="false" text="Freio a disco" />
+                              <CheckBox fx:id="trava" mnemonicParsing="false" text="Trava elétrica" />
+                              <Label />
+                              <Button fx:id="filtrar" mnemonicParsing="false" onAction="#filtrar" text="Filtrar" />
+                              <Label />
+                              <Label />
+                              <Button fx:id="selecionar" mnemonicParsing="false" onAction="#selecionar" text="Selecionar" />
+                           </children>
+                        </VBox>
+                     </left>
+                     <bottom>
+                        <Pane prefHeight="52.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                     </bottom>
+                     <center>
+                        <TableView fx:id="tabela" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <columns>
+                              <TableColumn fx:id="modeloCol" prefWidth="158.0" text="Modelo" />
+                              <TableColumn fx:id="precoCol" prefWidth="109.0" text="Preço/Dia" />
+                              <TableColumn fx:id="assentosCol" prefWidth="55.0" text="Assentos" />
+                              <TableColumn fx:id="cilindradasCol" prefWidth="75.0" text="Cilindradas" />
+                           </columns>
+                        </TableView>
+                     </center>
+                     <right>
+                        <Pane prefHeight="305.0" prefWidth="39.0" BorderPane.alignment="CENTER" />
+                     </right>
+                     <top>
+                        <Pane prefHeight="43.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+                     </top>
+                  </BorderPane>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
